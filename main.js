@@ -32,6 +32,9 @@
 		$('#'+cellId[0]).html(allNumberArray[cId-1])
 		
 		}else if(cellId.length===2){
+			for(var i=0;i<cells.length;i++){
+			cells[i].removeEventListener('click',showCell);
+			}
 		$('#'+cellId[1]).html(allNumberArray[cId-1])
 		console.log('cellId '+cellId);
 			console.log('cid '+cId)
@@ -49,8 +52,14 @@
 			
 			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
 				setTimeout(function(){
-				cells[cellId[0]-1].addEventListener('click',showCell,false);
-				cells[cellId[1]-1].addEventListener('click',showCell,false);
+				// cells[cellId[0]-1].addEventListener('click',showCell,false);
+				// cells[cellId[1]-1].addEventListener('click',showCell,false);
+				for(var i=0;i<cells.length;i++){
+					if(!correctNum.includes(i.toString())){
+						cells[i].addEventListener('click',showCell,false);
+					}
+			//cells[i].addEventListener('click',showCell,false);
+			}
 				$('#'+cellId[0]).html('');
 		        $('#'+cellId[1]).html('');
 		         cellId=[];
