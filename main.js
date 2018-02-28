@@ -22,8 +22,10 @@
 		checkClick++;
 		cId=s.target.id;
 		// console.log('s '+s);
-		// console.log('cId='+cId)
+		 console.log('cId='+cId)
 		cellId.push(cId);
+		//cells.removeEventListener(cId);
+		cells[cId-1].removeEventListener('click',showCell);
 
 		if(cellId.length===1){
 		
@@ -47,6 +49,8 @@
 			
 			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
 				setTimeout(function(){
+				cells[cellId[0]-1].addEventListener('click',showCell,false);
+				cells[cellId[1]-1].addEventListener('click',showCell,false);
 				$('#'+cellId[0]).html('');
 		        $('#'+cellId[1]).html('');
 		         cellId=[];
