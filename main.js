@@ -7,6 +7,8 @@
 
 
 	var startGame=function(){
+		$('#table').slideDown(1000);
+		$('#won').hide();
 		$('#start').hide();
 		$('#reset').show();
 		$('#show').show();
@@ -123,7 +125,7 @@
 
 				if(correctNum.length ===20){
 					$('#table').slideUp(1000);
-					$('#won').html('raed w8taaaa3 you take: '+checkClick+' try');
+					$('#won').html('raed w8taaaa3 you take: '+checkClick/2+' try');
 					$('#won').slideDown(1000);
 
 				}
