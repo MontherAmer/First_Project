@@ -1,7 +1,7 @@
 
 	var cellId=[];
 	var checkClick=0;
-
+	var correctNum=[];
 	var randomNum=function(){return Math.floor(Math.random() * Math.floor(10));
 	}
 
@@ -46,14 +46,22 @@
 		if(checkClick%2===0){
 			
 			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
+				setTimeout(function(){
 				$('#'+cellId[0]).html('');
 		        $('#'+cellId[1]).html('');
-		        cellId=[];
+		         cellId=[];
+					},1000)
+		       
 			}else{
 				console.log(cells[cellId[0]-1])
 			 cells[cellId[0]-1].removeEventListener('click',showCell);
 			 cells[cellId[1]-1].removeEventListener('click',showCell);
-			cellId=[];
+			 console.log('cellid of0 '+cellId[0]);
+			 console.log('cellid of0 '+cellId[1]);
+			 correctNum.push(cellId[0],cellId[1]);
+			 console.log(correctNum);
+
+			 cellId=[];
 		}
 		}
 	}

@@ -89,9 +89,19 @@
 	});
 
 	$('#show').click(function(){
-		for(var i=1 ; i<=20 ; i++){
-			$('#'+i).html(allNumberArray[i-1])
-		}
+		
+			setTimeout(function(){
+				for(var i=1 ; i<=20 ; i++){
+				$('#'+i).html(allNumberArray[i-1]);
+				}
+			},1500)
+
+
+			
+
+
+
+		
 
 	})
 });
