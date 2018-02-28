@@ -93,7 +93,9 @@
 					}
 				}
 
-				
+				if(correctNum.length ===20){
+					alert('You Win')
+				}
 
 			 cellId=[];
 		}
