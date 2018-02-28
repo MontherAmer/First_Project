@@ -89,10 +89,15 @@
 	});
 
 	$('#show').click(function(){
-		
+		console.log(correctNum)
+		for(var i=1 ; i<=20 ; i++){
+				$('#'+i).html(allNumberArray[i-1]);
+				}
 			setTimeout(function(){
 				for(var i=1 ; i<=20 ; i++){
-				$('#'+i).html(allNumberArray[i-1]);
+					if(!correctNum.includes(i.toString())){
+						$('#'+i).html('');
+					}
 				}
 			},1500)
 
