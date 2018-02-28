@@ -53,16 +53,19 @@
 	<div id='button'>
 		<button id='start'>START</button>
 		<button id='show'>HINT</button>
+		<button id='reset'>Reset</button>
 	</div>
 <script>
 	var cells=document.querySelectorAll('.cell');
 	$(document).ready(function(){
+
 	$('#mainScreen').css('text-align','center')
 	$('#mainScreen').css('border','3px solid green')
 	$('td').css('border', 'solid black 1px');
 	$('td').css('width','60px')
 	$('td').css('height','60px')
 	$('#show').hide();
+	$('#reset').hide();
 	
 	
 	
@@ -70,31 +73,14 @@
 	// 	cells[i].addEventListener('click',showCell,false);
 	// }
 	//console.log(cells)
+
+	
+
+
+
 	$('#start').click(function(){
-
-		$('#show').show();
-		setTimeout(function(){
-			for(var i=0;i<cells.length;i++){
-			cells[i].addEventListener('click',showCell,false);
-			}
-		},3000)
-
-		var no1=arrRandom();
-		var no2=arrRandom();
-		for(var i=1 ; i<=19 ; i++){
-			$('#'+i).html(no1[i-1]);
-			$('#'+(i+10)).html(no2[i-1]);
-		}
-
-	
-		allNumberArray=no1.concat(no2);
-	
-	setTimeout(function(){ 
-		$('td').html('');
-	 }, 3000);
-
-	console.log(allNumberArray)
-
+		startGame();
+		
 	});
 
 	$('#show').click(function(){
@@ -111,7 +97,23 @@
 			},1500)
 
 	})
+
+	$('#reset').click(function(){
+	    cellId=[];
+	    checkClick=0; 
+	    correctNum=[];
+	    startGame();
+	    
+	})
+
+
+
+
+
+
 });
+
+
 </script>
 </body>
 </html>

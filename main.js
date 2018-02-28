@@ -5,6 +5,34 @@
 	var randomNum=function(){return Math.floor(Math.random() * Math.floor(10));
 	}
 
+
+	var startGame=function(){
+		$('#start').hide();
+		$('#reset').show();
+		$('#show').show();
+		setTimeout(function(){
+			for(var i=0;i<cells.length;i++){
+			cells[i].addEventListener('click',showCell,false);
+			}
+		},3000)
+
+		var no1=arrRandom();
+		var no2=arrRandom();
+		for(var i=1 ; i<=19 ; i++){
+			$('#'+i).html(no1[i-1]);
+			$('#'+(i+10)).html(no2[i-1]);
+		}
+
+	
+		allNumberArray=no1.concat(no2);
+	
+	setTimeout(function(){ 
+		$('td').html('');
+	 }, 3000);
+
+	console.log(allNumberArray)
+	}
+	
 	
 	var arrRandom=function(){
 		var arrRand=[];        
