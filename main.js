@@ -1,7 +1,21 @@
-
+	var id=0;
 	var cellId=[];
 	var checkClick=0; 
 	var correctNum=[];
+	
+	function user(id,name , pass , numberOfWoningGame,highScore){
+		return{
+			id:id,
+			name: name,
+			pass: pass,
+			numberOfWoningGame: numberOfWoningGame,
+			highScore: highScore
+		};
+	}
+	var user1 =user(1,'monther','m123',0,[]);
+	var user2 =user(2,'raed','r123',0,[]);
+	var users =[user1,user2];
+	
 	var randomNum=function(){return Math.floor(Math.random() * Math.floor(10));
 	}
 
@@ -11,6 +25,7 @@
 		$('#won').hide();
 		$('#start').hide();
 		$('#reset').show();
+		$('#logOut').show();
 		// $('#show').show();
 		setTimeout(function(){
 			for(var i=0;i<cells.length;i++){
@@ -29,7 +44,7 @@
 		allNumberArray=no1.concat(no2);
 	
 	setTimeout(function(){ 
-		$('td').html('');
+		$('.cell').html('');
 	 }, 3000);
 
 	console.log(allNumberArray)
@@ -125,8 +140,14 @@
 				}
 
 				if(correctNum.length ===20){
+					users[id-1].numberOfWoningGame=users[id-1].numberOfWoningGame +1;
+					var $topS=users[id-1].highScore;
+					
+					$topS.push(checkClick)
+					
+
 					$('#table').slideUp(1000);
-					$('#won').html('raed w8taaaa3 you take: '+checkClick/2+' try');
+					$('#won').html('you take: '+checkClick/2+' try');
 					$('#won').slideDown(1000);
 
 				}

@@ -13,7 +13,29 @@
 <body>
 
 	<div id='mainScreen'>
-		<div id='table'>
+		<div id ='logIn'>
+			<table id ='table2'>
+				<tr>
+					<td class='utable'>
+					User Name:
+					</td>
+					<td class='utable'>
+					<input type="text" id='userName'><br>
+					</td>
+				</tr>
+				<tr>
+					<td class='utable'>
+					Password:
+					</td>
+					<td class='utable'>
+					<input type="password" id='passWord'><br>
+					</td>
+				</tr>
+			</table>
+	<button id ='log'>Log In</button>
+						
+		</div>
+	<div id='table'>
 		<table id='table1'>
 		<tr>
 			<td class='cell' id='1'>a</td>
@@ -49,26 +71,53 @@
 	<div id='won'>
 		
 	</div>
-	</div>
-
-	<div id='button'>
+<div id='button'>
 		<button id='start'>START</button>
 		<button id='show'>HINT</button>
 		<button id='reset'>Reset</button>
+		<button id='logOut'>LogOut</button>
+		<button id='score'>Score</button>
+
+	</div>
+	<div id='divScore'>
+
+		
+	</div>
 	</div>
 
+
+	
 <script>
 	var cells=document.querySelectorAll('.cell');
 	$(document).ready(function(){
-		$('#won').hide();
+	$('#table').hide();	
+	$('#won').hide();
+	$('#button').hide();
 	$('#mainScreen').css('text-align','center')
 	$('#mainScreen').css('border','3px solid green')
-	$('td').css('border', 'solid black 1px');
-	$('td').css('width','60px')
-	$('td').css('height','60px')
+	$('.cell').css('border', 'solid black 1px');
+	$('.cell').css('width','60px')
+	$('.cell').css('height','60px')
 	$('#show').hide();
 	$('#reset').hide();
-	
+	$('#logOut').hide();
+	$('#log').click(function(){
+		var $userName=$('#userName').val();
+		var $passWord=$('#passWord').val();
+		for(var i=0;i<users.length;i++){
+			if(users[i].name===$userName&&users[i].pass===$passWord){
+				id=users[i].id;
+				$('#logIn').slideUp(1000);
+				$('#button').show();
+
+
+			}
+
+			
+		}
+
+	})
+
 	
 	
 	// for(var i=0;i<cells.length;i++){
@@ -108,15 +157,31 @@
 	    cellId=[];
 	    checkClick=0; 
 	    correctNum=[];
-	    
+	    $('#divScore').slideUp(500);
 	    startGame();
+	    
 	    
 	})
 
 
 
+$('#logOut').click(function(){
+		cellId=[];
+	    checkClick=0; 
+	    correctNum=[];
+	    id=0;
+	    $('#logIn').slideDown(1000);
+	    $('#divScore').slideUp(500);
+	    $('#button').slideUp(1000);
+	    $('#table').slideUp(1000);
+	    $('#won').slideUp(1000);
 
-
+	})
+	
+	$("#score").click(function(){
+		$('#divScore').slideDown(500);
+		$('#divScore').html(users[id-1].name +' you win '+users[id-1].numberOfWoningGame +' Games <br>' + ' your high score in all games: <br>'+users[id-1].highScore )
+	})
 
 });
 

@@ -1,12 +1,23 @@
 
 body {
 	background-color : gray;
+	
+	
+}
+#logIn{
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#mainScreen{
+	background-color : gray;
 	position: absolute;
 	left: 35%;
-	top:10%;
+	top:35%;
 }
-
-table{
+#table1{
 	 font-size: 30px;
 }
 
+.utable{
+	border: 0px;
+}
