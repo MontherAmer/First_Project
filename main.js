@@ -1,6 +1,6 @@
 
 	var cellId=[];
-	var checkClick=0;
+	var checkClick=0; 
 	var correctNum=[];
 	var randomNum=function(){return Math.floor(Math.random() * Math.floor(10));
 	}
@@ -19,6 +19,7 @@
 	var allNumberArray=[];
 
 	var showCell=function(s){
+		console.log("correctNum is : "+correctNum)
 		checkClick++;
 		cId=s.target.id;
 		// console.log('s '+s);
@@ -51,11 +52,13 @@
 		if(checkClick%2===0){
 			
 			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
+				console.log(allNumberArray[cellId[0]-1]);
+				console.log(allNumberArray[cellId[1]-1])
 				setTimeout(function(){
 				// cells[cellId[0]-1].addEventListener('click',showCell,false);
 				// cells[cellId[1]-1].addEventListener('click',showCell,false);
 				for(var i=0;i<cells.length;i++){
-					if(!correctNum.includes(i.toString())){
+					if(!correctNum.includes((i+1).toString())){
 						cells[i].addEventListener('click',showCell,false);
 					}
 			//cells[i].addEventListener('click',showCell,false);
@@ -66,13 +69,31 @@
 					},1000)
 		       
 			}else{
-				console.log(cells[cellId[0]-1])
+
+				console.log('cells '+cells[cellId[0]-1].id)
+				console.log('cells '+cells[cellId[1]-1].id)
+
+
+
 			 cells[cellId[0]-1].removeEventListener('click',showCell);
 			 cells[cellId[1]-1].removeEventListener('click',showCell);
 			 console.log('cellid of0 '+cellId[0]);
-			 console.log('cellid of0 '+cellId[1]);
+			 console.log('cellid of1 '+cellId[1]);
 			 correctNum.push(cellId[0],cellId[1]);
-			 console.log(correctNum);
+			 console.log("correctNum is : "+correctNum)
+			 console.log('the length of'+correctNum.length);
+			 // 	for(var i=0;i<cells.length;i++){
+				// 	if(!correctNum.includes(i.toString())){
+				// 		cells[i].addEventListener('click',showCell,false);
+				// 	}
+				// }
+				for(var i=1 ; i<=20 ; i++){
+					if(!correctNum.includes(i.toString())){
+						cells[i-1].addEventListener('click',showCell,false);
+					}
+				}
+
+				
 
 			 cellId=[];
 		}
