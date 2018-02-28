@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+<link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div id='mainScreen'>
+		
+		<table id='table1'>
+		<tr>
+			<td class='cell' id='1'>a</td>
+			<td class='cell' id='2'>a</td>
+			<td class='cell' id='3'>a</td>
+			<td class='cell' id='4'>a</td>
+			<td class='cell' id='5'>a</td>
+		</tr>
+		<tr>
+			<td class='cell' id='6'>a</td>
+			<td class='cell' id='7'>a</td>
+			<td class='cell' id='8'>a</td>
+			<td class='cell' id='9'>a</td>
+			<td class='cell' id='10'>a</td>
+		</tr>
+		<tr>
+			<td class='cell' id='11'>a</td>
+			<td class='cell' id='12'>a</td>
+			<td class='cell' id='13'>a</td>
+			<td class='cell' id='14'>a</td>
+			<td class='cell' id='15'>a</td>
+		</tr>
+		<tr>
+			<td class='cell' id='16'>a</td>
+			<td class='cell' id='17'>a</td>
+			<td class='cell' id='18'>a</td>
+			<td class='cell' id='19'>a</td>
+			<td class='cell' id='20'>a</td>
+		</tr>
+		
+		
+		
+			
+		</table>
+
+	</div>
+
+	<div id='button'>
+		<button id='start'>START</button>
+		<button id='show'>HINT</button>
+	</div>
+<script>
+	$(document).ready(function(){
+	$('#mainScreen').css('text-align','center')
+	$('#mainScreen').css('border','3px solid green')
+	$('td').css('border', 'solid black 1px');
+	$('td').css('width','60px')
+	$('td').css('height','60px')
+	$('#show').hide();
+	
+	var cells=document.querySelectorAll('.cell');
+	
+	for(var i=0;i<cells.length;i++){
+		cells[i].addEventListener('click',showCell,false);
+	}
+	//console.log(cells)
+	$('#start').click(function(){
+		$('#show').show();
+		var no1=arrRandom();
+		var no2=arrRandom();
+		for(var i=1 ; i<=19 ; i++){
+			$('#'+i).html(no1[i-1]);
+			$('#'+(i+10)).html(no2[i-1]);
+		}
+
+	
+		allNumberArray=no1.concat(no2);
+	
+	setTimeout(function(){ 
+		$('td').html('');
+	 }, 3000);	
+	console.log(allNumberArray)
+
+
+
+
+	});
+
+	$('#show').click(function(){
+		for(var i=1 ; i<=20 ; i++){
+			$('#'+i).html(allNumberArray[i-1])
+		}
+
+	})
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
