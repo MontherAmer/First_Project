@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id='mainScreen'>
-		
+		<div id='table'>
 		<table id='table1'>
 		<tr>
 			<td class='cell' id='1'>a</td>
@@ -42,12 +42,12 @@
 			<td class='cell' id='19'>a</td>
 			<td class='cell' id='20'>a</td>
 		</tr>
-		
-		
-		
-			
-		</table>
 
+		</table>
+	</div>
+	<div id='won'>
+		raed w8taaaa3
+	</div>
 	</div>
 
 	<div id='button'>
@@ -55,10 +55,11 @@
 		<button id='show'>HINT</button>
 		<button id='reset'>Reset</button>
 	</div>
+
 <script>
 	var cells=document.querySelectorAll('.cell');
 	$(document).ready(function(){
-
+		$('#won').hide();
 	$('#mainScreen').css('text-align','center')
 	$('#mainScreen').css('border','3px solid green')
 	$('td').css('border', 'solid black 1px');

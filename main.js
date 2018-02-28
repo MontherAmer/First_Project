@@ -32,7 +32,7 @@
 
 	console.log(allNumberArray)
 	}
-	
+
 	
 	var arrRandom=function(){
 		var arrRand=[];        
@@ -122,7 +122,10 @@
 				}
 
 				if(correctNum.length ===20){
-					alert('You Win')
+					$('#table').slideUp(1000);
+					$('#won').html('raed w8taaaa3 you take: '+checkClick+' try');
+					$('#won').slideDown(1000);
+
 				}
 
 			 cellId=[];
