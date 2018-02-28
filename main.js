@@ -21,8 +21,8 @@
 	var showCell=function(s){
 		checkClick++;
 		cId=s.target.id;
-		console.log('s '+s);
-		console.log('cId='+cId)
+		// console.log('s '+s);
+		// console.log('cId='+cId)
 		cellId.push(cId);
 
 		if(cellId.length===1){
@@ -31,9 +31,10 @@
 		
 		}else if(cellId.length===2){
 		$('#'+cellId[1]).html(allNumberArray[cId-1])
-		
+		console.log('cellId '+cellId);
+			console.log('cid '+cId)
 		checkEquality();
-		cellId=[];
+		// cellId=[];
 
 		}
 		console.log(checkClick);
@@ -41,13 +42,19 @@
 
 
 	var checkEquality=function(){
-		console.log(checkClick);
-		console.log(cellId)
+			
 		if(checkClick%2===0){
-			if($('#'+cellId[0]).html()!==$('#'+cellId[1]).html()){
+			
+			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
 				$('#'+cellId[0]).html('');
 		        $('#'+cellId[1]).html('');
-			}
+		        cellId=[];
+			}else{
+				console.log(cells[cellId[0]-1])
+			 cells[cellId[0]-1].removeEventListener('click',showCell);
+			 cells[cellId[1]-1].removeEventListener('click',showCell);
+			cellId=[];
+		}
 		}
 	}
 

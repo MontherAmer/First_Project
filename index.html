@@ -55,6 +55,7 @@
 		<button id='show'>HINT</button>
 	</div>
 <script>
+	var cells=document.querySelectorAll('.cell');
 	$(document).ready(function(){
 	$('#mainScreen').css('text-align','center')
 	$('#mainScreen').css('border','3px solid green')
@@ -63,7 +64,7 @@
 	$('td').css('height','60px')
 	$('#show').hide();
 	
-	var cells=document.querySelectorAll('.cell');
+	
 	
 	for(var i=0;i<cells.length;i++){
 		cells[i].addEventListener('click',showCell,false);
@@ -85,10 +86,6 @@
 		$('td').html('');
 	 }, 3000);	
 	console.log(allNumberArray)
-
-
-
-
 	});
 
 	$('#show').click(function(){
@@ -97,42 +94,9 @@
 		}
 
 	})
-
-
-
-
-
-
-
-
-
-
 });
 </script>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
 
 
