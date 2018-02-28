@@ -11,7 +11,7 @@
 		$('#won').hide();
 		$('#start').hide();
 		$('#reset').show();
-		$('#show').show();
+		// $('#show').show();
 		setTimeout(function(){
 			for(var i=0;i<cells.length;i++){
 			cells[i].addEventListener('click',showCell,false);
@@ -59,10 +59,11 @@
 		cells[cId-1].removeEventListener('click',showCell);
 
 		if(cellId.length===1){
-		
+		$('#show').hide();
 		$('#'+cellId[0]).html(allNumberArray[cId-1])
 		
 		}else if(cellId.length===2){
+			$('#show').show();
 			for(var i=0;i<cells.length;i++){
 			cells[i].removeEventListener('click',showCell);
 			}
