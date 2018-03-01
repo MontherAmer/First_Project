@@ -95,14 +95,12 @@
 
 
 	var checkEquality=function(){
-			
-		if(checkClick%2===0){
-			
+					
+			//check if the 2 numbers are equal
 			if(allNumberArray[cellId[0]-1]!==allNumberArray[cellId[1]-1]){
-				console.log(allNumberArray[cellId[0]-1]);
-				console.log(allNumberArray[cellId[1]-1])
-				setTimeout(function(){
 				
+				setTimeout(function(){
+				//if the numbers not equal make them clickable again and hide them
 				for(var i=0;i<cells.length;i++){
 					if(!correctNum.includes((i+1).toString())){
 						cells[i].addEventListener('click',showCell,false);
@@ -116,25 +114,20 @@
 		       
 			}else{
 
-				console.log('cells '+cells[cellId[0]-1].id)
-				console.log('cells '+cells[cellId[1]-1].id)
 
-
-
+				// if the numbers are equal keep them apper and make them unclickable
 			 cells[cellId[0]-1].removeEventListener('click',showCell);
 			 cells[cellId[1]-1].removeEventListener('click',showCell);
-			 console.log('cellid of0 '+cellId[0]);
-			 console.log('cellid of1 '+cellId[1]);
+			 //push the ids of the cells in new array
 			 correctNum.push(cellId[0],cellId[1]);
-			 console.log("correctNum is : "+correctNum)
-			 console.log('the length of'+correctNum.length);
-			 
+			
+			 //make all the number clickable except correctNumber 
 				for(var i=1 ; i<=20 ; i++){
 					if(!correctNum.includes(i.toString())){
 						cells[i-1].addEventListener('click',showCell,false);
 					}
 				}
-
+				//check if the user fond all the number 
 				if(correctNum.length ===20){
 					users[id-1].numberOfWoningGame=users[id-1].numberOfWoningGame +1;
 					var $topS=users[id-1].highScore;
@@ -150,7 +143,7 @@
 
 			 cellId=[];
 		}
-		}
+		
 	}
 
 

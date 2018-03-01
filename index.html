@@ -148,7 +148,7 @@
 		startGame();
 		
 	});
-
+	//when click on the hint button it will show all the numbers to the user for 1.5 sec 
 	$('#show').click(function(){
 		console.log(correctNum)
 		for(var i=1 ; i<=20 ; i++){
@@ -167,7 +167,7 @@
 			},1500)
 
 	})
-
+	//start the game from the begging
 	$('#reset').click(function(){
 	    cellId=[];
 	    checkClick=0; 
@@ -179,7 +179,7 @@
 	})
 
 
-
+//go back to the first page 
 $('#logOut').click(function(){
 		cellId=[];
 	    checkClick=0; 
@@ -193,7 +193,7 @@ $('#logOut').click(function(){
 	    $('#won').slideUp(1000);
 
 	})
-	
+	//display the score of the player
 	$("#score").click(function(){
 		$('#divScore').slideDown(500);
 		$('#divScore').html(users[id-1].name +' you win '+users[id-1].numberOfWoningGame +' Games <br>' + ' your high score in all games: <br>'+users[id-1].highScore )
