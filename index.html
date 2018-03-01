@@ -71,6 +71,7 @@
 	<div id='won'>
 		
 	</div>
+	<div id='error'>Your user name or password is wrong</div>
 <div id='button'>
 		<button id='start'>START</button>
 		<button id='show'>HINT</button>
@@ -88,29 +89,46 @@
 
 	
 <script>
-	var cells=document.querySelectorAll('.cell');
+	//here we start the code
+	var cells=document.querySelectorAll('.cell'); //save all the classes of the cells in the table inside the cells variable
 	$(document).ready(function(){
+		//hide divs exept log in div
+	$('#error').hide();
 	$('#table').hide();	
 	$('#won').hide();
 	$('#button').hide();
-	$('#mainScreen').css('text-align','center')
-	$('#mainScreen').css('border','3px solid green')
-	$('.cell').css('border', 'solid black 1px');
-	$('.cell').css('width','60px')
-	$('.cell').css('height','60px')
 	$('#show').hide();
 	$('#reset').hide();
 	$('#logOut').hide();
+	//give the cells some attributs
+	$('.cell').css('border', 'solid black 1px');
+	$('.cell').css('width','60px')
+	$('.cell').css('height','60px')
+
+	
+	
+
+
+	//when we click on the log in button
 	$('#log').click(function(){
+
+		$('#show').hide();
+		$('#reset').hide();
+		$('#start').show();
+		//save the userName and Password in variabels
 		var $userName=$('#userName').val();
 		var $passWord=$('#passWord').val();
+		//chick if the userName and pass is correct
 		for(var i=0;i<users.length;i++){
 			if(users[i].name===$userName&&users[i].pass===$passWord){
+				//make a new variable called id to store the id of the user
 				id=users[i].id;
+				$('#error').hide();
 				$('#logIn').slideUp(1000);
 				$('#button').show();
-
-
+				break;
+			}else{
+				$('#error').show();
 			}
 
 			
@@ -120,14 +138,11 @@
 
 	
 	
-	// for(var i=0;i<cells.length;i++){
-	// 	cells[i].addEventListener('click',showCell,false);
-	// }
-	//console.log(cells)
+		
 
 	
 
-
+	//when we click on start button call the startgame()
 
 	$('#start').click(function(){
 		startGame();
@@ -172,6 +187,7 @@ $('#logOut').click(function(){
 	    id=0;
 	    $('#logIn').slideDown(1000);
 	    $('#divScore').slideUp(500);
+
 	    $('#button').slideUp(1000);
 	    $('#table').slideUp(1000);
 	    $('#won').slideUp(1000);
